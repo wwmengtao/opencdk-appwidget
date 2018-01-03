@@ -11,7 +11,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <uses-permission android:name="android.permission.INTERNET" />
-    
+
     <uses-sdk
         android:minSdkVersion="14"
         android:targetSdkVersion="21"
@@ -29,16 +29,14 @@
         android:allowBackup="false"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/CDK.Application.Theme" >
-        
+        android:theme="@style/AppTheme" >
+
         <activity
             android:name="com.opencdk.appwidget.SplashActivity"
             android:exported="true"
-            android:label="@string/app_name"
-            android:theme="@style/CDK.Theme.NoTitleBar.Splash" >
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
             <!-- Listen to scheme -->
@@ -49,16 +47,16 @@
                 <data android:scheme="opencdk" />
             </intent-filter>
         </activity>
-        
+
         <activity
             android:name="com.opencdk.appwidget.MainActivity"
             android:launchMode="singleTask" >
         </activity>
-        
+
         <activity android:name="com.opencdk.appwidget.activity.NewsListActivity" />
         <activity android:name="com.opencdk.appwidget.activity.NewsDetailActivity" />
-        
-        
+
+
         <!-- ### Widget Start -->
         <receiver android:name="com.opencdk.appwidget.widget.NewsAppWidgetProvider"
             android:exported="false"
@@ -70,9 +68,9 @@
             <intent-filter>
                 <!-- 系统自动回调, 必须 -->
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-                
-            	<action android:name="com.opencdk.appwidget.action.APPWIDGET_REFRESH_MANUAL" />
-            	<action android:name="com.opencdk.appwidget.action.APPWIDGET_REFRESH_AUTO" />
+
+                <action android:name="com.opencdk.appwidget.action.APPWIDGET_REFRESH_MANUAL" />
+                <action android:name="com.opencdk.appwidget.action.APPWIDGET_REFRESH_AUTO" />
                 <action android:name="com.opencdk.appwidget.action.APPWIDGET_JUMP_LISTITEM" />
                 <action android:name="com.opencdk.appwidget.action.APPWIDGET_JUMP_LOGO" />
             </intent-filter>
@@ -87,16 +85,16 @@
             <!-- widget自动刷新 -->
             <action android:name="com.opencdk.appwidget.action.APPWIDGET_REFRESH_AUTO" />
         </service>
-        
+
         <!-- DaemonReceiver 服务广播 -->
         <receiver
             android:name="com.opencdk.appwidget.widget.DaemonReceiver"
             android:permission="com.opencdk.appwidget.permission.APP_WIDGET"
             android:exported="true" >
             <intent-filter android:priority="0x6fffffff" >
-                
+
                 <action android:name="com.opencdk.appwidget.action.DAEMON_RECEIVER" />
-                
+
                 <!-- 【必须】 系统广播：开屏和网络切换 -->
                 <action android:name="android.intent.action.USER_PRESENT" />
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
@@ -117,8 +115,8 @@
                 <data android:scheme="file" />
             </intent-filter>
         </receiver>
-		<!-- ### Widget End -->
-		
+        <!-- ### Widget End -->
+
     </application>
 
 </manifest>
